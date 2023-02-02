@@ -84,6 +84,40 @@
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-expanded-width u-list u-list-1">
           <div class="u-repeater u-repeater-1">
+<style>
+  .u-container-layout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .u-image {
+    width: 300px;
+    height: 200px;
+    margin: 0 20px;
+  }
+
+  .u-text {
+    text-align: center;
+    width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .u-container-layout {
+      height: auto;
+      flex-direction: column;
+    }
+
+    .u-image {
+      width: 100%;
+      height: 200px;
+      margin: 20px 0;
+    }
+  }
+</style>
             <div class="u-container-layout u-similar-container u-container-layout-1">
   <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="300" data-image-height="188" src="images/botox-thumbnail-300x188.jpg">
   <h3 class="u-text u-text-default u-text-1">Botox</h3>
