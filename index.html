@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Top 100 Cryptocurrencies by Market Cap</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>Rank</th>
+      <th>Symbol</th>
+      <th>Name</th>
+      <th>Market Cap</th>
+      <th>Price</th>
+    </tr>
+  </table>
+  <script>
+  function fetchData() {
+    fetch("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=100&convert=USD&CMC_PRO_API_KEY=c2369a64-e7ab-4c32-abb8-d56fc3464bb6")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        let tbody = document.querySelector("table tbody");
+        tbody.innerHTML = "";
+        data.data.forEach(crypto => {
+          let tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${crypto.cmc_rank}</td>
+            <td>${crypto.symbol}</td>
+            <td>${crypto.name}</td>
+            <td>$${crypto.quote.USD.market_cap.toLocaleString()}</td>
+            <td>$${crypto.quote.USD.price.toLocaleString()}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      })
+      .catch(error => console.error(error));
+  }
+  setInterval(fetchData, 5000);
+</script>
+
+</body>
+</html>
